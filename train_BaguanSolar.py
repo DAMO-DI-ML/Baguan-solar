@@ -186,11 +186,11 @@ def parse_args():
     parser.add_argument("--target_size", type=int, default=512)
 
     # System
-    parser.add_argument("--data_dir", type=str, default="/mindopt/SSRA_PREDICTION/Data/train")
-    parser.add_argument("--era5_dir", type=str, default="/mindopt/SSRA_PREDICTION/Data/train_era5")
-    parser.add_argument("--stats_path", type=str, default="/mindopt/SSRA_PREDICTION/solarseer_yk/datasets/data_train_statistics.json")
-    parser.add_argument("--era5_stats_path", type=str, default="/mindopt/SSRA_PREDICTION/solarseer_zty/datasets/modify_era5_train.json")
-    parser.add_argument("--latlon_path", type=str, default="/mindopt/SSRA_PREDICTION/latlon_512x512.npy")
+    parser.add_argument("--data_dir", type=str, default="./datasets/data/train")
+    parser.add_argument("--era5_dir", type=str, default="./datasets/data/era5_train")
+    parser.add_argument("--stats_path", type=str, default="./datasets/data_train_statistics.json")
+    parser.add_argument("--era5_stats_path", type=str, default="./datasets/modify_era5_train.json")
+    parser.add_argument("--latlon_path", type=str, default="./datasets/latlon_512x512.npy")
 
     parser.add_argument("--exp_name", type=str, default="BaguanSolar_V2")
     parser.add_argument("--use_amp", action="store_true", default=False)
@@ -199,7 +199,7 @@ def parse_args():
     # Wandb
     parser.add_argument("--wandb_project", type=str, default="SSRA_CS_GHI_6h_v2")
     parser.add_argument("--wandb_entity", type=str, default="maziqing_team")
-    parser.add_argument("--wandb_group", type=str, default="solarseer")
+    parser.add_argument("--wandb_group", type=str, default="BaguanSolar")
     parser.add_argument("--wandb_name", type=str, default="[BaguanSolar]BaguanSolar_V2")
 
     return parser.parse_args()

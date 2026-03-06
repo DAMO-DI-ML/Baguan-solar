@@ -85,9 +85,9 @@ def merge_cldas_himawari(cldas_dir, himawari_dir, output_dir):
 
 def main():
     # Set paths
-    cldas_dir = "./data/cldas_processed"
-    himawari_dir = "./data/himawari_processed"
-    output_dir = "./data/train"  # You can modify output path
+    cldas_dir = "./data/cldas_processed_2025"
+    himawari_dir = "./data/himawari_processed_2025"
+    output_dir = "./data/test"  # You can modify output path
     
     print("="*50)
     print("CLDAS and Himawari Data Merger")

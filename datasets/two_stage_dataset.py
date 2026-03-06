@@ -248,19 +248,19 @@ class TwoStageDataset(Dataset):
 
 if __name__ == "__main__":
     # 原卫星统计
-    stats_path = "/mindopt/SSRA_PREDICTION/solarseer_yk/datasets/data_train_statistics.json"
+    stats_path = "./datasets/data_train_statistics.json"
     with open(stats_path, "r") as f:
         stats = json.load(f)
-    era_stats_path = "/mindopt/SSRA_PREDICTION/solarseer_zty/datasets/modify_era5_train.json"
+    era_stats_path = "./datasets/modify_era5_train.json"
     with open(era_stats_path, "r") as f:
         era_stats = json.load(f)
 
     dataset = TwoStageDataset(
-        data_dir="/mindopt/SSRA_MM/data/test",
-        latlon_path="/mindopt/SSRA_PREDICTION/latlon_512x512.npy",
+        data_dir="./datasets/data/test",
+        latlon_path="./datasets/latlon_512x512.npy",
         stats=stats,
-        era5_dir="/mindopt/SSRA_PREDICTION/Data/test_era5_2025",
-        baguan_dir='/mindopt/SSRA_PREDICTION/Data/baguan_test_2025',
+        era5_dir="./datasets/data/era5_test",
+        baguan_dir='./datasets/data/baguan_test_2025',
         era5_stats=era_stats,
         history_frames=6,
         future_frames=24,

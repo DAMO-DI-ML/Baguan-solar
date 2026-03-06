@@ -9,7 +9,7 @@ from threading import Lock
 import traceback
 
 src_root = "./data/npy_era5"
-out_root = "./data/era5"
+out_root = "./data/era5_test"
 stats_json = "./data/era5_channels_stats_train.json"
 
 os.makedirs(out_root, exist_ok=True)
