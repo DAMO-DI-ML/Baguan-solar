@@ -186,11 +186,11 @@ def parse_args():
     parser.add_argument("--target_size", type=int, default=512)
 
     # System
-    parser.add_argument("--data_dir", type=str, default="/mindopt/SSRA_PREDICTION/Data/train")
-    parser.add_argument("--era5_dir", type=str, default="/mindopt/SSRA_PREDICTION/Data/train_era5")
-    parser.add_argument("--stats_path", type=str, default="/mindopt/SSRA_PREDICTION/solarseer_yk/datasets/data_train_statistics.json")
-    parser.add_argument("--era5_stats_path", type=str, default="/mindopt/SSRA_PREDICTION/solarseer_zty/datasets/modify_era5_train.json")
-    parser.add_argument("--latlon_path", type=str, default="/mindopt/SSRA_PREDICTION/latlon_512x512.npy")
+    parser.add_argument("--data_dir", type=str, default="/data/na130/SSRA_PREDICTION/Data/train")
+    parser.add_argument("--era5_dir", type=str, default="/data/na130/SSRA_PREDICTION/Data/train_era5")
+    parser.add_argument("--stats_path", type=str, default="./datasets/data_train_statistics.json")
+    parser.add_argument("--era5_stats_path", type=str, default="./datasets/modify_era5_train.json")
+    parser.add_argument("--latlon_path", type=str, default="/data/na130/SSRA_PREDICTION/latlon_512x512.npy")
 
     parser.add_argument("--exp_name", type=str, default="BaguanSolar_V2")
     parser.add_argument("--use_amp", action="store_true", default=False)

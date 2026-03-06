@@ -141,14 +141,14 @@ def parse_args():
     parser.add_argument("--aux_loss_weight", type=float, default=1.0)
     parser.add_argument("--target_size", type=int, default=512)
 
-    parser.add_argument("--data_dir", type=str, default='/mindopt/SSRA_MM/data/test')
-    parser.add_argument("--era5_dir", type=str, default="/mindopt/SSRA_PREDICTION/Data/test_era5_2025")
-    parser.add_argument("--baguan_dir", type=str, default='/mindopt/SSRA_PREDICTION/Data/baguan_test_2025')
-    parser.add_argument("--stats_path", type=str, default="/mindopt/SSRA_PREDICTION/baguan-solar/datasets/data_train_statistics.json")
-    parser.add_argument("--era5_stats_path", type=str, default="/mindopt/SSRA_PREDICTION/baguan-solar/datasets/modify_era5_train.json")
-    parser.add_argument("--latlon_path", type=str, default="/mindopt/SSRA_PREDICTION/latlon_512x512.npy")
+    parser.add_argument("--data_dir", type=str, default='/data/na130/SSRA_PREDICTION/Data/test')
+    parser.add_argument("--era5_dir", type=str, default="/data/na130/SSRA_PREDICTION/Data/test_era5_2025")
+    parser.add_argument("--baguan_dir", type=str, default='/data/na130/SSRA_PREDICTION/Data/baguan_test_2025')
+    parser.add_argument("--stats_path", type=str, default="./datasets/data_train_statistics.json")
+    parser.add_argument("--era5_stats_path", type=str, default="./datasets/modify_era5_train.json")
+    parser.add_argument("--latlon_path", type=str, default="/data/na130/SSRA_PREDICTION/latlon_512x512.npy")
 
-    parser.add_argument("--exp_dir", type=str, default='/mindopt/SSRA_PREDICTION/baguan-solar/experiments/BaguanSolar_V2')
+    parser.add_argument("--exp_dir", type=str, default='./experiments/BaguanSolar_V2')
     parser.add_argument("--load", type=str, default='best.ckpt')
 
     parser.add_argument("--exp_name", type=str, default="SolarSeer")
