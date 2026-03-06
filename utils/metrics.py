@@ -88,6 +88,37 @@ class RMSEMetrics:
             out[event] = (sums[event] / max(self.event_cnt[event], 1)).to(torch.float32)
         return out
 
+    def compute(self, mode="leadtime", prefix="val") -> Dict[str, float]:
+        """
+        汇总所有 event 的 RMSE，返回用于 wandb 日志的字典。
+        mode:
+          - 'leadtime': 返回每个 leadtime 的 cloud/ghi RMSE 以及 overall RMSE
+        """
+        if mode == "leadtime":
+            cloud_table = self.get_event_table(which="cloud")
+            ghi_table = self.get_event_table(which="ghi")
+
+            if len(cloud_table) == 0:
+                return {f"{prefix}/cloud_rmse_overall": float('nan'),
+                        f"{prefix}/ghi_rmse_overall": float('nan')}
+
+            cloud_all = torch.stack(list(cloud_table.values()), dim=0)  # [N_events, T]
+            ghi_all = torch.stack(list(ghi_table.values()), dim=0)      # [N_events, T]
+
+            cloud_rmse_per_t = cloud_all.mean(dim=0)  # [T]
+            ghi_rmse_per_t = ghi_all.mean(dim=0)      # [T]
+
+            metrics = {
+                f"{prefix}/cloud_rmse_overall": cloud_rmse_per_t.mean().item(),
+                f"{prefix}/ghi_rmse_overall": ghi_rmse_per_t.mean().item(),
+            }
+            for t in range(self.num_frames):
+                metrics[f"{prefix}/cloud_rmse_t{t+1:02d}"] = cloud_rmse_per_t[t].item()
+                metrics[f"{prefix}/ghi_rmse_t{t+1:02d}"] = ghi_rmse_per_t[t].item()
+            return metrics
+        else:
+            raise ValueError(f"Unsupported mode: {mode}")
+
     def export_event_table_csv(self, csv_path: str, which: str = "ghi"):
         tab = self.get_event_table(which=which)
 

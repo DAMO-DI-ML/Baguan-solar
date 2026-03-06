@@ -1,4 +1,8 @@
 
 # checkpoints
-experiments/**/checkpoints/
+experiments/
 *.ckpt
+nohup.out
+wandb/
+*.pyc
+
